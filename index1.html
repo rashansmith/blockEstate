@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Simple Counter</title>
+
+	
+</head>
+<body>
+	<div>
+		<p id='counter-value'></p>
+		<button id='increment'>Increment</button>
+		<button id='decrement'>Decrement</button>
+		<button id='reset'>Reset</button>
+	</div>
+
+	
+	<!--<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>-->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+	<script src="web3.min.js"></script>
+	<!--<script src="./require.min.js"></script>-->
+	<!--needed to interact with the smart client-->
+	<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"</script>-->
+	
+
+	<script>
+		var contract;
+
+		$(document).ready(function() {
+			initContract();
+			getValue();
+		})
+
+		console.log("hi");
+
+		//metamask and test ether needed
+		function initContract() {
+			//var Web3 = require('web3');
+
+			web3 = new Web3(web3.currentProvider);
+			var address = "0xcc1d8a2ee418c810c3fd69e5c730c6f7cdf188a9";
+			var abi = [
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getCounterAnother",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "decrement",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getCounter",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "increment",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "reset",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	}
+];
+			
+
+			// instantiating new contract
+			contract =  new web3.eth.Contract(abi, address);
+		}
+
+		function getValue() {
+			contract.methods.getCounterAnother().call().then((result) => {
+				$('#counter-value').html(result);
+			})
+			
+		}
+
+		$('#increment').click(function() {
+			web3.eth.getAccounts().then(function(accounts) {
+				var acct = accounts[0];
+				return contract.methods.increment().send({from: acct});
+			}).then(function(tx) {
+				console.log(tx);
+				var curr = parseInt($('#counter-value').html());
+				$('#counter-value').html(curr + 1);
+			}).catch(function(err) {
+				console.lg(err);
+			})
+		})
+
+	</script>
+
+
+
+</body>
+<html>

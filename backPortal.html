@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+
+<link rel="stylesheet" href="pricing.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" </script>
+
+<title>BlockEstate</title>
+
+	
+</head>
+<body>
+
+<!--Nav Bar-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  	<a class="navbar-brand" href="#"></a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  	</button>
+  	<div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Block Estate</a>
+      <li class="nav-item active">
+        <a class="nav-link  " href="backPortal.html">Management Portal <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="userDemoPage.html">User Portal</a>
+      </li>
+
+    </ul>
+    <span class="navbar-text">
+     Hello, Manager!
+    </span>
+  </div>
+</nav>
+<!--End of navBar -->
+
+<div class="row">
+
+<!-- Card 1-->
+  <div class="col-md-3  mt-5 ml-5">
+   <div class="card" style="width: 18rem;">
+   	 <div class="card-header">
+    Background Check Expenditure
+  </div> 
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+    	<p class="card-text" id='bought' style="float: right" >0</p>
+    	<p class="card-text" ># B. Checks bought</p>
+    </li>
+    <li class="list-group-item">
+    	<p class="card-text" id='spent' style="float: right" >0</p>
+    	<p class="card-text">$ Spent</p>
+    </li>
+  </ul>
+  </div>
+</div>
+
+<!-- Card 2 -->
+ <div class="col-md-8  mt-5 ml-3">
+   <div class="card ">
+  <h5 class="card-header">Approval Requirements</h5>
+  <div class="card-body">
+    <form class="form-inline">
+  		<label class="my-1 mr-2" for="inlineFormCustomSelectPref">Credit Score</label>
+		  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+		  	 <option selected>Choose...</option>
+		    <option value="1"> 700 > </option>
+		    <option value="2">600 ></option>
+		    <option value="3">500 ></option>
+		    <option value="4"> > 500</option>
+		  </select>
+
+		  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Criminal History</label>
+		  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+		    <option selected>Choose...</option>
+		    <option value="1">Allowed</option>
+		    <option value="2">Not allowed</option>
+		  </select>
+
+		  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Salary multX</label>
+		  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+		    <option selected>Choose...</option>
+		    <option value="1">25</option>
+		    <option value="2">35</option>
+		    <option value="3">45</option>
+		  </select>
+
+		   <label class="my-1 mr-3" for="inlineFormCustomSelectPref">Flexible with requirements?</label>
+		  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+		    <option selected>Choose...</option>
+		    <option value="1">Yes</option>
+		    <option value="2">No</option>
+		  </select>
+
+     <button class="btn btn-info" type="submit">Set Parameters</button>
+  </div>
+</div>
+</div>
+
+
+</div>
+</div>
+	<div class="row mt-5 ml-5 mr-5">
+		<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col-sm">#</th>
+      <th scope="col-sm">Name</th>
+      <th scope="col-sm">Application</th>
+      <th scope="col-sm">Background Check</th>
+      <th scope="col-sm">Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark Otto</td>
+      <td>
+      	 <a href="bcCheck1.txt" download>Application</a> 
+      </td>
+      <td>
+      	  <button type="button" onclick="buy1(); this.disabled=true" class="btn btn-primary" id='buyBC1'>Buy Background Check</button>
+      </td>
+      <td>
+      	<p class="card-text" id='result1'>Not Checked</p>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jessica Moore</td>
+      <td>
+       <a href="bcCheck1.txt" download>Application</a> 
+      </td>
+      <td>
+        <button id='buyBC1' onclick="this.disabled=true" class="btn btn-primary" >Buy Background Check</button>
+      </td>
+      <td>
+      <p class="card-text" id='result2' >Not Checked</p>
+  	  </td>
+    </tr>
+   
+  </tbody>
+</table>
+  
+
+
+	</div>
+
+	<!--<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>-->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+	<script src="web3.min.js"></script>
+	<!--<script src="./require.min.js"></script>-->
+	<!--needed to interact with the smart client-->
+	<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"</script>-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="web3.min.js"></script>
+
+<script>
+		var contract;
+
+		$(document).ready(function() {
+			initContract();
+			getValue1();
+			getValue2();
+		})
+
+		console.log("hi");
+		//metamask and test ether needed
+		function initContract() {
+			//var Web3 = require('web3');
+
+			web3 = new Web3(web3.currentProvider);
+			var address = "0x410233fa29f051b8827be434eaf7249c08ec8ead";
+			var abi = [
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getbcBought",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getMoneySpent",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "conductCheck",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+			
+
+			// instantiating new contract
+			contract =  new web3.eth.Contract(abi, address);
+		}
+
+		function getValue1() {
+			contract.methods.getMoneySpent().call().then((result) => {
+				$('#spent').html(result);
+			})
+		}
+
+		function getValue2() {
+			contract.methods.getbcBought().call().then((result) => {
+				$('#bought').html(result);
+			})
+			
+		}
+
+		/*function buy1() {
+  			document.getElementById("result1").innerHTML = "Approved"; 
+  			 //document.getElementById("result1").innerHTML = "Approved"; 
+		}*/
+
+		/* Method for conducting background check */
+		$('#buyBC1').click(function() {
+          web3.eth.getAccounts().then(function(accounts) {
+          var acct = accounts[0];
+          return contract.methods.conductCheck().send({from: acct});
+      	  }).then(function(tx) {
+          console.log(tx);
+          var curr = parseInt($('#result1').html());
+          $('#result1').html("Approved");
+      	  }).catch(function(err) {
+          console.lg(err);
+      		})
+      	 
+
+    	})
+
+	</script>
+
+
+
+
+
+</body>
+<html>
